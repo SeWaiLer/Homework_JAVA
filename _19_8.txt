@@ -1,0 +1,30 @@
+package test;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class _19_8 {
+	public static void main(String args[]){
+		Scanner scan = new Scanner(System.in);
+		int n=scan.nextInt();
+		ArrayList al=new ArrayList();
+		for(int i=0;i<n;i++){
+			al.add(scan.nextInt());
+		}
+		shuffle(al);
+		System.out.println(al);
+		
+	}
+	public static <E> void shuffle(ArrayList<E> list){
+		Random rand=new Random();
+		E temp=null;
+		int a,b;
+		int cycle_num=rand.nextInt(20);
+		for(int i=0;i<cycle_num;i++){
+			a=rand.nextInt(list.size());
+			b=rand.nextInt(list.size());
+			temp=list.get(a);
+			list.set(a,list.get(b));
+			list.set(b,temp);
+		}
+	}
+}

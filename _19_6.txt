@@ -1,0 +1,33 @@
+package test;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class _19_6 {
+	public static void main(String []args){
+		Scanner scan=new Scanner(System.in);
+		int m,n;
+		m=scan.nextInt();
+		n=scan.nextInt();
+		Integer arr[][]=new Integer[m][n];
+		for(int i=0;i<m;i++){
+			for(int j=0;j<n;j++){
+				arr[i][j]=scan.nextInt();
+			}
+		}
+		int maxx=max(arr);
+		System.out.println(maxx);
+	}
+	
+	
+	public static <E extends Comparable<E>> E max(E[][] list){
+		E max=null;
+		for(int i=0;i<list[0].length;i++){
+			for(int j=0;j<list.length;j++){
+				if(list[0][i].compareTo(list[j][i])<=0)list[0][i]=list[j][i];
+				if(list[0][0].compareTo(list[0][i])<=0)list[0][0]=list[0][i];
+			}
+		}
+		max=list[0][0];
+		return max;
+	}
+}
+SSSS
